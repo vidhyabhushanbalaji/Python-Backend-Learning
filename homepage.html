@@ -25,7 +25,7 @@
             const n2 = document.getElementById('num2').value;
             const n3 = document.getElementById('num3').value;
             // Change endpoint to your backend URL
-            fetch('http://0.0.0.0:8501/multiply', {
+            fetch('http://localhost:8501/multiply', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({ numbers: [n1, n2, n3] })
@@ -33,7 +33,7 @@
             .then(res => res.json())
             .then(data => {
                 // Optional: update the below line based on what your API returns
-                document.getElementById('numStatus').innerText = "Sent!";
+                document.getElementById('numStatus').innerText = data.results;
             })
             .catch(err => {
                 document.getElementById('numStatus').innerText = "Error sending numbers.";
